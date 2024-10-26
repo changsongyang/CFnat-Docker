@@ -2,7 +2,7 @@
 
 - 命令
 ```shell
-docker run -d --name mycfnat -p 1234:1234 cmliu/cfnat:latest
+docker run -d --name mycfnat -p 1234:1234 cmliu/cfnat:v20240922-183348
 ```
 
 - 创建 `docker-compose.yml`
@@ -12,7 +12,7 @@ version: '3'
 services:
   cfnat:
     container_name: mycfnat
-    image: cmliu/cfnat:latest
+    image: cmliu/cfnat:v20240922-183348
     environment:
       - colo=HKG,SJC,LAX  # 筛选数据中心例如 HKG,SJC,LAX.电信/联通 推荐 SJC,LAX.移动/广电 推荐 HKG"
       - delay=300  # 有效延迟（毫秒），超过此延迟将断开连接
@@ -35,7 +35,7 @@ services:
 - 有效延迟(delay): 160
 - IP类型(ips): 6
 ```shell
-docker run -d -e colo="HKG" -e delay=160 -e ips=6 -p 1234:1234 cmliu/cfnat:latest
+docker run -d -e colo="HKG" -e delay=160 -e ips=6 -p 1234:1234 cmliu/cfnat:v20240922-183348
 ```
 
 ----
@@ -47,7 +47,7 @@ docker run -d -e colo="HKG" -e delay=160 -e ips=6 -p 1234:1234 cmliu/cfnat:lates
 - tls: false
 - **本地映射端口: 8080**
 ```shell
-docker run -d -e colo="HKG" -e delay=160 -e ips=4 -e port=80 -e tls=false -p 8080:1234 cmliu/cfnat:latest
+docker run -d -e colo="HKG" -e delay=160 -e ips=4 -e port=80 -e tls=false -p 8080:1234 cmliu/cfnat:v20240922-183348
 ```
 
 ----
@@ -56,7 +56,7 @@ docker run -d -e colo="HKG" -e delay=160 -e ips=4 -e port=80 -e tls=false -p 808
 - 有效延迟(delay): 300
 - IP类型(ips): 4
 ```shell
-docker run -d -e colo="SJC,LAX" -e delay=300 -e ips=4 -p 1234:1234 cmliu/cfnat:latest
+docker run -d -e colo="SJC,LAX" -e delay=300 -e ips=4 -p 1234:1234 cmliu/cfnat:v20240922-183348
 ```
 
 ----
@@ -86,7 +86,7 @@ docker run -d \
     -e code=200 \
     -e domain="cloudflaremirrors.com/debian" \
     -p 1234:1234 \
-    cmliu/cfnat:latest
+    cmliu/cfnat:v20240922-183348
 ```
 
 ## 查看日志
