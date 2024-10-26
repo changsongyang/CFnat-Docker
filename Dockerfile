@@ -21,8 +21,7 @@ RUN ls -la && \
     if [ "$TARGETARCH" = "amd64" ]; then mv ./app/cfnat-linux-amd64 ./cfnat; \
     elif [ "$TARGETARCH" = "386" ]; then mv ./app/cfnat-linux-386 ./cfnat; \
     elif [ "$TARGETARCH" = "arm64" ]; then mv ./app/cfnat-linux-arm64 ./cfnat; \
-    elif [ "$TARGETARCH" = "arm" ] && [ "$TARGETVARIANT" = "v6" ]; then mv ./app/cfnat-linux-armv6 ./cfnat; \
-    elif [ "$TARGETARCH" = "arm" ] && [ "$TARGETVARIANT" = "v7" ]; then mv ./app/cfnat-linux-armv7 ./cfnat; \
+    elif [ "$TARGETARCH" = "arm" ] && [ "$TARGETVARIANT" = "v7" ]; then mv ./app/cfnat-linux-arm ./cfnat; \
     else echo "无法识别架构，默认使用 amd64" && mv ./app/cfnat-linux-amd64 ./cfnat; \
     fi
 
@@ -49,6 +48,7 @@ ENV colo="SJC,LAX,HKG" \
     random="true" \
     task="100" \
     tls="true" \
+    code="200" \
     domain="cloudflaremirrors.com/debian"
 
 # 暴露 1234 端口
